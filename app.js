@@ -81,3 +81,13 @@ const menu = [
     desc: `Red bean paste dessert, serving with honey.`,
   },
 ];
+
+const CategoryList = menu.map(
+  (item) => {
+    return item.category
+  }
+);
+
+const UniqueCategoryList =[...new Set(CategoryList)]
+
+console.log(UniqueCategoryList);
