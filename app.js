@@ -70,6 +70,14 @@ const menu = [{
     img: "https://www.justonecookbook.com/wp-content/uploads/2011/10/Dorayaki-New-500x400.jpg",
     desc: `Red bean paste dessert, serving with honey.`,
   },
+  {
+    id: 10,
+    title: "Kıymalı Pide",
+    category: "Pide",
+    price: 24,
+    img: "https://www.justonecookbook.com/wp-content/uploads/2011/10/Dorayaki-New-500x400.jpg",
+    desc: `Red bean paste dessert, serving with honey.`,
+  },
 ];
 
 // Category

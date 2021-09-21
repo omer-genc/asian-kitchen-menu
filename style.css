@@ -3,18 +3,24 @@
 }
 
 body {
+  background-color: #eec0c6;
+  background-image: linear-gradient(315deg, #eec0c6 0%, #e58c8a 74%);
+
+
   margin: 0;
-  padding: 0;
-  background-color: #f1f5f8;
-  font-family: "Zilla Slab", serif;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+
 }
 
 h2 {
   font-family: "Great Vibes", cursive;
   font-size: 3rem;
   text-align: center;
-  color: #ff6a23;
+  color: #000000;
 }
+
 .menu {
   margin-top: 20px;
 }
@@ -31,14 +37,17 @@ h2 {
   border: 0.25rem solid black;
   border-radius: 10px;
 }
+
 .menu-items {
   display: flex;
   margin: 20px 0;
 }
+
 .menu-info {
   margin-left: 20px;
   width: 100%;
 }
+
 .menu-title {
   display: flex;
   justify-content: space-between;
