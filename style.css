@@ -18,7 +18,7 @@ h2 {
   font-family: "Great Vibes", cursive;
   font-size: 3rem;
   text-align: center;
-  color: #000000;
+  color: #e00a00;
 }
 
 .menu {
@@ -31,11 +31,9 @@ h2 {
 }
 
 .photo {
-  width: 30%;
-  height: 175px;
-  object-fit: cover;
-  border: 0.25rem solid black;
-  border-radius: 10px;
+  height: 150px;
+  width: 150px;
+  
 }
 
 .menu-items {

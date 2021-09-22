@@ -3,7 +3,7 @@ const menu = [{
     title: "Tteokbokki",
     category: "Korea",
     price: 10.99,
-    img: "https://twoplaidaprons.com/wp-content/uploads/2020/09/tteokbokki-top-down-view-of-tteokbokki-in-a-bowl-500x500.jpg",
+    img: "http://static.fooddrinkbuzz.com/i/2a/23/97b222ae37133ac2507b65c7b430.jpg",
     desc: `Spicy rice cakes, serving with fish cake.`,
   },
   {
@@ -11,7 +11,7 @@ const menu = [{
     title: "Chicken Ramen",
     category: "Japan",
     price: 7.99,
-    img: "https://www.forkknifeswoon.com/wp-content/uploads/2014/10/simple-homemade-chicken-ramen-fork-knife-swoon-01.jpg",
+    img: "https://m.media-amazon.com/images/S/aplus-media/vc/e814ff3b-533d-4563-9474-60e80be182e7.__CR0,0,300,300_PT0_SX300_V1___.jpg",
     desc: `Chicken noodle soup, serving with vegetables such as soy bean, green onion. In an optional you can ask for egg. `,
   },
   {
@@ -19,7 +19,7 @@ const menu = [{
     title: "Bibimbap",
     category: "Korea",
     price: 8.99,
-    img: "https://dwellbymichelle.com/wp-content/uploads/2020/05/DWELL-bibimbap.jpg",
+    img: "https://im0-tub-com.yandex.net/i?id=ca301fc125dac830c8e59253525f7c1f&n=13",
     desc: `Boiling vegetables, serving with special hot sauce`,
   },
   {
@@ -74,9 +74,9 @@ const menu = [{
     id: 10,
     title: "Kıymalı Pide",
     category: "Pide",
-    price: 24,
-    img: "https://www.justonecookbook.com/wp-content/uploads/2011/10/Dorayaki-New-500x400.jpg",
-    desc: `Red bean paste dessert, serving with honey.`,
+    price: 23.99,
+    img: "https://cdn.yemeksepeti.com/productimages/TR_IZMIR/ora/orapasaport_kiymalipide_20190416130416_big.jpg",
+    desc: `Biberli sarımsaklı kıyma`,
   },
 ];
 
@@ -94,8 +94,60 @@ console.log("Test: print category list\n\n", UniqueCategoryList);
 // buttons
 const ButtonsELEMENT = document.querySelector(".btn-container");
 const CategoryButtons = UniqueCategoryList.map((category) => {
-  return `<button type="button" class="btn btn-outline-dark col m-1" id="${category}" >${category}</button>`
+  return `<button type="button" class="btn-category btn btn-outline-dark col m-1" id="${category}" >${category}</button>`
 }).join("")
 
 ButtonsELEMENT.innerHTML = CategoryButtons;
 console.log("Test print category butons\n\n", CategoryButtons)
+
+// show menu
+function showMenu(menu) {
+  const menuHTML = menu.map((item) => {
+    return `
+    <div class="col-xs-12 col-md-6 mb-4">
+      <div class="row">
+
+        <div class="image col-4 ">
+          <img src="${item.img}" class="photo img-fluid border border-3 border-dark rounded"
+            alt="${item.title}">
+        </div>
+
+        <div class="text col-8">
+
+          <div class="menu-title">
+            <h4 >${item.title}</h4>
+            <h4 class="price">${item.price}</h4>
+          </div>
+
+          <p class="menu-text">${item.desc}</p>
+        </div>
+
+      </div>
+    </div>
+    `
+  }).join("");
+
+  const menuELEMENT = document.querySelector(".section-center");
+  menuELEMENT.innerHTML = menuHTML;
+}
+
+showMenu(menu)
+
+// filter menu
+const filterBUTTONS = document.querySelectorAll(".btn-category");
+
+filterBUTTONS.forEach(button => {
+  button.addEventListener("click", (e) => {
+    const categoryBUTTON = e.currentTarget.id;
+    
+    const menuAfterClick = menu.filter(item => {
+      if(item.category === categoryBUTTON)
+        return item;
+    })
+
+    if(categoryBUTTON === "All")
+      showMenu(menu)
+    else
+      showMenu(menuAfterClick)
+  })
+})
